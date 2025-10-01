@@ -8,8 +8,21 @@ func main() {
 	// cards = append(cards, "Six of Spades")
 
 	cards := newDeck()
+	//Kreira novi deck of cards
+
+	hand, remainingCards := deal(cards, 5)
+	//vraca 2 vrednosti, onim redom koji smo definisali u deck.go
+	//prva vrednost je karte koje smo dobili, a druga koje su ostale u deck
+	//oboje su type deck jer to deal vraca
+
+	//deal(cards, deck) saljemo string karte i broj int u f-ju
+
+	hand.print()
+	remainingCards.print()
 
 	cards.print()
+	//ispisuje u consolu sve karte, list
+
 	// for i, card := range cards {
 	// 	fmt.Println(i, card)
 	// }

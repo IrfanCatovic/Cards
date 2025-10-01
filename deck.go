@@ -30,3 +30,11 @@ func (d deck) print () {
 		fmt.Println(i,card)
 	}
 }
+
+func deal(d deck, handSize int) (deck, deck){
+	//(deck, deck) we are telling Go want to return 2 values
+	//and both type of deck
+	//handSize number of cards in the hand we want to return
+
+	return d[:handSize], d[handSize:]
+}
