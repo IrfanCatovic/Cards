@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// var card string = "Ace of Spades"
 	// card := "Ace of Spades"
@@ -19,6 +21,10 @@ func main() {
 
 	hand.print()
 	remainingCards.print()
+
+	fmt.Println(cards.toString()) //pretvara slice of string u jedan red stringova
+
+	cards.saveToFile("my_cards")
 
 	cards.print()
 	//ispisuje u consolu sve karte, list

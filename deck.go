@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+)
 
 //Create a new type of 'deck
 // //which is a slice of strings
@@ -37,4 +41,16 @@ func deal(d deck, handSize int) (deck, deck){
 	//handSize number of cards in the hand we want to return
 
 	return d[:handSize], d[handSize:]
+}
+
+func (d deck) toString() string {
+	return strings.Join([]string(d),",")//strings je paket koji koristimo da izvadimo sve 
+	//elemnte iz slice u jedan isti string da bi cuvali podatke
+
+	// []string(d) ovo nam vraca listu strigova tj slice of strings
+
+}
+
+func (d deck) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666 )
 }
