@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 //Create a new type of 'deck
@@ -21,7 +23,7 @@ func newDeck() deck {
 
 	for _, suit := range cardSuits{
 		for _, value := range cardValues {
-			cards = append(cards, value + "of" + suit)
+			cards = append(cards, value + " of " + suit)
 		}
 		//ovde _ je upisano umesto indeksa "i" "j" ali posto ih nigde ne ispisujemo
 		//samo upisemo ovo da postoje, ali ne trebaju nam
@@ -69,4 +71,17 @@ func newDeckFromFile(filename string) deck {
 
 	s := strings.Split(string(bs), ",")
 	return deck(s)
+}
+
+func (d deck) shuffle() {
+	source := rand.NewSource(time.Now().UnixNano());
+	r := rand.New(source)
+
+
+	for i := range d{
+		newPosition := r.Intn(len(d) - 1) // len = lenght
+		//daje random broj od 0 do duzine niza
+		d[i], d[newPosition] = d[newPosition], d[i];
+		//indeks menja sa random pozicijom
+	}
 }
