@@ -9,9 +9,10 @@ func main() {
 	// cards := deck{"Ace of Diamonds", newCard()}
 	// cards = append(cards, "Six of Spades")
 
-	cards := newDeck()
+	// cards := newDeck()
 	//Kreira novi deck of cards
-
+	
+	cards := newDeckFromFile("my_cards")
 	hand, remainingCards := deal(cards, 5)
 	//vraca 2 vrednosti, onim redom koji smo definisali u deck.go
 	//prva vrednost je karte koje smo dobili, a druga koje su ostale u deck
@@ -24,7 +25,8 @@ func main() {
 
 	fmt.Println(cards.toString()) //pretvara slice of string u jedan red stringova
 
-	cards.saveToFile("my_cards")
+	// cards.saveToFile("my_cards")
+
 
 	cards.print()
 	//ispisuje u consolu sve karte, list
